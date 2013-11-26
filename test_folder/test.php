@@ -1,4 +1,0 @@
-<?php
-dsadasdsad
-dasdsadsad
-sadasdsa

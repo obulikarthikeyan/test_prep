@@ -429,7 +429,7 @@ mindmaps.DefaultCanvasView = function() {
 	
 	var $wiki = $("<a/>", {
 	id : "node-cap-" + node.id,
-	href : "http://localhost/webtester5/w/index.php/lucid",
+	href : "http://localhost/wiki/" + node.text.caption,
 	target : "_blank",
 	//"class" : "node-caption node-text-behaviour",
 	text : node.text.caption
@@ -700,7 +700,6 @@ mindmaps.DefaultCanvasView = function() {
     });
 
     var metrics = textMetrics.getTextMetrics(node, this.zoomFactor);
-
     $text.css({
       "color" : font.color,
       "font-weight" : font.weight,
@@ -805,11 +804,14 @@ mindmaps.DefaultCanvasView = function() {
       self.stop();
     }).bind("keydown", "return", function() {
       commitText();
+      $("#node-cap-"+node.id).attr('href', "http://localhost/wiki/" + $editor.val());
+     
     }).mousedown(function(e) {
       // avoid premature canceling
       e.stopPropagation();
     }).blur(function() {
       commitText();
+      $("#node-cap-"+node.id).attr('href', "http://localhost/wiki/" + $editor.val());
     }).bind(
         "input",
         function() {
@@ -850,9 +852,8 @@ mindmaps.DefaultCanvasView = function() {
       // TODO put text into span and hide()
       this.$text = $getNodeCaption(node);
       this.$cancelArea = $cancelArea;
-
+      
       this.text = this.$text.text();
-
       this.$text.css({
         width : "auto",
         height : "auto"
@@ -862,7 +863,9 @@ mindmaps.DefaultCanvasView = function() {
       // draggable. need this
       // workaround to detect click on other draggable
       $cancelArea.bind("mousedown.editNodeCaption", function(e) {
-        commitText();
+    	//$('a').attr('href', "http://localhost/wiki/" + this.text);
+        commitText(); 
+        $("#node-cap-"+node.id).attr('href', "http://localhost/wiki/" + $editor.val());
       });
 
       var metrics = textMetrics.getTextMetrics(self.node,
@@ -883,7 +886,6 @@ mindmaps.DefaultCanvasView = function() {
         $editor.detach();
         this.$cancelArea.unbind("mousedown.editNodeCaption");
         view.setNodeText(this.node, this.text);
-
         alignBranches();
       }
     };
