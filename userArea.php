@@ -117,7 +117,7 @@ include "./includes/top.php";
         <hr />
       </div>       
         <!-- InstanceBeginEditable name="Content Area" -->
-        <p class="style1"><strong>Available Tests for <?=$_SESSION['firstname']?> <?=$_SESSION['lastname']?></strong> - <a href="./changePassword.php">Change Password</a> - <a href="./logout.php">Logout</a></p>
+        <p class="style1"><strong>Available Activities and Tests for <?=$_SESSION['firstname']?> <?=$_SESSION['lastname']?></strong> - <a href="./changePassword.php">Change Password</a> - <a href="./logout.php">Logout</a></p>
         <?php
 		$limitedsubjects=explode(",",$_SESSION['limitedsubjects']);
 		$subjectsfilter=implode(" OR ",$limitedsubjects);
@@ -141,7 +141,22 @@ include "./includes/top.php";
         </table>
 		-->
 		<table class="style1 style5" width="100%"  border="0" cellspacing="2" cellpadding="0" onMouseOut="javascript:highlightTableRowVersionA(0);">
+		<tr bgcolor="#C8D8FF">
+			<td><strong>Activity</strong></td>
+			<td width="240"><strong>Activity Description</strong></td>
+		</tr>
+		<tr class="d0">
+			<td>Collaboratively build a WordMap for <strong><a href="./wordmap/index.html?word=abate">Abate</a></strong><br/>Activity due <strong>Nov 29</strong></td>
+			<td>As a group, build a WordMap for <b>Abate</b>. <br/>One member in the group will serve as a facilitator for this activity</td>
+		</tr>
+		<tr class="d1">
+			<td>Collaboratively build Wiki pages for the words you added in <strong><a href="./wordmap/index.html">your WordMap</a></strong><br/>Activity due <strong>Dec 5</strong></td>
+			<td>Open the WordMap from your Google Drive/Dropbox. Click on each word to edit the Wiki. <br/>If the Wiki is blank, then create one. <br/>If the Wiki has contents in it, think and add/modify the existing content to improve the Wiki's content quality</td>
+		</tr>
+		<table class="style1 style5" width="100%"  border="0" cellspacing="2" cellpadding="0" onMouseOut="javascript:highlightTableRowVersionA(0);">
   <tr bgcolor="#C8D8FF">
+	<br>
+	<br>
     <td>Name</td>
     <td width="240">Subject</td>
   </tr>
