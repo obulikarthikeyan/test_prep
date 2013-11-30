@@ -24,7 +24,7 @@ mindmaps.CanvasContainer = function() {
     var headerHeight = $("#topbar").outerHeight(true);
     var footerHeight = $("#bottombar").outerHeight(true);
     var height = windowHeight - headerHeight - footerHeight;
-    $content.height(height);
+    $content.height(height - 150);
 
     var size = new mindmaps.Point($content.width(), height);
     self.publish(mindmaps.CanvasContainer.Event.RESIZED, size);

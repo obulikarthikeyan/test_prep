@@ -139,13 +139,18 @@ html,body {
 }
 
 #bottombar {
-  position: fixed; /* absolute caused scroll bar, depending on border */
+  position: absolute; /* absolute caused scroll bar, depending on border */
   width: 100%;
-  bottom: 0;
+  bottom: 50px;
   background: #EEE;
   border-top: 1px solid #AAA;
 }
 
+/* .orangebutton {
+	position: absolute;
+	bottom: 240px:
+}
+ */
 #statusbar {
   height: 32px;
 }
